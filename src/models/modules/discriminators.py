@@ -6,9 +6,9 @@ import numpy as np
 class Discriminator(nn.Module):
     def __init__(
             self,
-            n_classes: int = 10,
-            channels: int = 1,
-            img_size: int = 32,
+            n_classes: int,
+            channels: int,
+            img_size: int,
     ):
         super().__init__()
         self.img_shape = (channels, img_size, img_size)
