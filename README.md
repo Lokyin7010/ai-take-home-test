@@ -89,6 +89,11 @@ This is because the generator and discriminator are currently assigned `null`
 in `model/mnist_gan_model.yaml`. This is your first task in the "What you need to do" 
 section.
 
+## Bonus tasks
+
+- **Implement your own networks**: you are free to choose what you deem most appropriate, but we recommend using CNN and their variants
+- Use a more complex dataset, such as Fashion-MNIST
+
 ## Questions
 
 Try to prepare some short answers to the following questions below for discussion in the interview.
@@ -102,5 +107,11 @@ What are these inputs and how could they be used at inference time to generate a
 
 * If you wanted to train with multiple GPUs, 
 what can you do in pytorch lightning to make sure data is allocated to the correct GPU? 
+
+## Submission
+
+- Using git, keep the existing git history and add your code contribution on top of it. Follow git best practices as you see fit. We appreciate readability in the commits
+- Add a section at the top of this README, containing your answers to the questions, as well as the output `wandb` graphs and images resulting from your training run. You are also invited to talk about difficulties you encountered and how you overcame them
+- Link to your git repository in your email reply and share it with us/make it public
 
 <br>
