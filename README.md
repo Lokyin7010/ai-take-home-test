@@ -89,10 +89,15 @@ This is because the generator and discriminator are currently assigned `null`
 in `model/mnist_gan_model.yaml`. This is your first task in the "What you need to do" 
 section.
 
-## Bonus tasks
+## Open-Ended tasks (Bonus for junior candidates, expected for senior candidates)
 
-- **Implement your own networks**: you are free to choose what you deem most appropriate, but we recommend using CNN and their variants
-- Use a more complex dataset, such as Fashion-MNIST
+Staying within the given Hydra - Pytorch-lightning - Wandb framework, show off your skills and creativity by extending the existing model, or even setting up a new one with completely different training goals/strategy. Here are a few potential ideas:
+
+- **Implement your own networks**: you are free to choose what you deem most appropriate, but we recommend using CNN and their variants if you are keeping the image-based GANs as the model to train
+- **Use a more complex dataset**: ideally introducing color, and higher resolution
+- **Introduce new losses, or different training regimens**
+- **Add more plugins/dependecy**: on top of the provided framework
+- **Train a completely different model**: this may be especially relevant to you if your existing expertise is not centered in image-based GANs. You may want to re-create a toy sample related to your past research. Do remember to still use the provided framework.
 
 ## Questions
 
