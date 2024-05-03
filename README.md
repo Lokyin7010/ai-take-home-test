@@ -119,4 +119,16 @@ what can you do in pytorch lightning to make sure data is allocated to the corre
 - Add a section at the top of this README, containing your answers to the questions, as well as the output `wandb` graphs and images resulting from your training run. You are also invited to talk about difficulties you encountered and how you overcame them
 - Link to your git repository in your email reply and share it with us/make it public
 
+# Chatbot Assignment:
+
+To complete this assignment, you are required to create assistants in [HuggingChat](https://huggingface.co/chat/settings/assistants/new) and address the following questions:
+
+* Compare atleast 3 different models and provide insights on Content Quality, Contextual Understanding, Language Fluency and Ethical Considerations with examples.
+
+* What are the parameters that can be used to control response. Explain in detail.
+
+* Explore various techniques used in prompt engineering, such as template-based prompts, rule-based prompts, and machine learning-based prompts and provide what are the challenges and considerations in designing effective prompts with examples.
+
+* What is retrieval-augmented generation(RAG) and how is it applied in natural language generation tasks?
+
 <br>
