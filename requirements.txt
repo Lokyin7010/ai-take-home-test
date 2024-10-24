@@ -9,7 +9,7 @@ hydra-colorlog==1.1.0
 hydra-optuna-sweeper==1.1.0
 
 # --------- loggers --------- #
-wandb
+wandb~=0.17.9  # 0.18.3 seems to have a bug preventing logged images from being uploaded
 
 # --------- linters --------- #
 pre-commit      # hooks for applying linters on commit
