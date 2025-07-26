@@ -9,7 +9,91 @@
 
 </div>
 
-testtest~
+# Submission
+
+## Q&A
+
+**Q1:** Role of Discriminator.
+
+The discriminator in a GAN acts as a classifier that distinguishes between real and fake data.
+
+In this project, the discriminator takes 'image' + 'label' as input, the model output a value representing the probability that the input is real.
+
+**Q2:** About noise and lables.
+
+- noise –> Random vector/seed
+- labels –> Class label
+
+Input 'noise' + 'labels = 5' -> image resembling a "5".
+
+**Q3:** What steps are needed to deploy a model into production?
+
+- Train & save the model
+- Wrap the API
+- Package with Docker
+- Deploy to a cloud server
+
+**Q4:** Train with multiple GPUs.
+
+Add it to trainer/default.yaml:
+
+```yaml
+gpus: 2
+strategy: ddp
+```
+
+## Training Results
+
+🚀 View run northern-donkey-30 at: https://wandb.ai/lokyin-hong-kong-baptist-university/Tests/runs/46lg7xwv
+
+⭐️ View project at: https://wandb.ai/lokyin-hong-kong-baptist-university/Tests
+
+
+## Challenges & Solutions
+
+- New to Hydra, but basic YAML setup was easy. Need more time for advanced features.
+
+- Debugging test_after_training took a long time, solved by adjusting checkpoint settings. Other parts worked fine.
+
+- No time for open-ended task (no GPU + busy with coursework).
+But I think open-ended experiments may yield interesting findings.
+
+- Got confused by some auto-generated names like "fancy-feather-28" and "wobbly-vortex-27" - not sure what they represent.
+  
+## Chatbot Assignment
+
+**Q1:** Compare models
+
+HuggingChat is CLOSED. I’d like to share some of my findings here, although I didn’t use HuggingChat.
+
+Since most models are powerful nowadays, I don’t think there is any gap between their ability. Instead, depending on whether you subscribe, it would be smarter.
+
+Take Deepseek, ChatGPT and Claude as example.
+Deepseek pretends to be verbose for me, ChatGPT is general and balanced, and Claude is really good at Coding.
+
+**Q2:** Parameters to control response
+
+- Temperature: Controls randomness (0 = deterministic, 1 = creative).
+
+- Top-p: Limits choices to probable words (e.g., top 90% likely options).
+
+- Max Length: Sets maximum response length (in tokens).
+
+**Q3:** Examples in prompt engineering
+
+Ambiguity & Clarity
+- Bad: "Tell me about Apple." (Fruit? Company?)
+- Good: "Explain Apple Inc.'s business model in 2 sentences."
+
+Context Window Limits
+- Bad: A 500-word essay + "Summarize this." (Information loss)
+- Good: "Summarize the main argument in 3 bullet points."
+
+**Q4:** RAG
+
+RAG combines retrieved documents with a language model to generate more accurate and informed responses in natural language tasks.
+
+---END---
 
 ## What is all this?
 This "programming assignment" is really just a way to get you used to

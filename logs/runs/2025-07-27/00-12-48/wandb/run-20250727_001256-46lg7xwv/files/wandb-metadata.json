@@ -1,0 +1,46 @@
+{
+    "os": "macOS-10.16-x86_64-i386-64bit",
+    "python": "3.8.20",
+    "heartbeatAt": "2025-07-26T16:12:57.407217",
+    "startedAt": "2025-07-26T16:12:56.092150",
+    "docker": null,
+    "cuda": null,
+    "args": [
+        "experiment=train_mnist_gan.yaml"
+    ],
+    "state": "running",
+    "program": "run.py",
+    "codePathLocal": null,
+    "git": {
+        "remote": "git@github.com:Lokyin7010/ai-take-home-test.git",
+        "commit": "5fd43e926b2d5387507ffa05b9fcae43e00218e8"
+    },
+    "email": "venus.ly7010@gmail.com",
+    "root": "/Users/zheqiqiantan/Desktop/ai-take-home-test",
+    "host": "zheqiqitandembp",
+    "username": "zheqiqiantan",
+    "executable": "/Users/zheqiqiantan/opt/anaconda3/envs/pantheon-py38/bin/python",
+    "cpu_count": 8,
+    "cpu_count_logical": 16,
+    "cpu_freq": {
+        "current": 2300,
+        "min": 2300,
+        "max": 2300
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2300,
+            "min": 2300,
+            "max": 2300
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 465.6620864868164,
+            "used": 14.360179901123047
+        }
+    },
+    "memory": {
+        "total": 16.0
+    }
+}

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Pantheon Lab Programming Assignment</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <div align="center">
+<h1 id="pantheon-lab-programming-assignment">Pantheon Lab Programming Assignment</h1>
+<p><a href="https://pytorch.org/get-started/locally/"><img alt="PyTorch" src="https://img.shields.io/badge/PyTorch-ee4c2c?logo=pytorch&logoColor=white"></a>
+<a href="https://pytorchlightning.ai/"><img alt="Lightning" src="https://img.shields.io/badge/-Lightning-792ee5?logo=pytorchlightning&logoColor=white"></a>
+<a href="https://hydra.cc/"><img alt="Config: Hydra" src="https://img.shields.io/badge/Config-Hydra-89b8cd"></a>
+<a href="https://github.com/ashleve/lightning-hydra-template"><img alt="Template" src="https://img.shields.io/badge/-Lightning--Hydra--Template-017F2F?style=flat&logo=github&labelColor=gray"></a><br></p>
+</div>
+<h1 id="submission">Submission</h1>
+<h2 id="qa">Q&amp;A</h2>
+<p><strong>Q1:</strong> Role of Discriminator.</p>
+<p>The discriminator in a GAN acts as a classifier that distinguishes between real and fake data.</p>
+<p>In this project, the discriminator takes 'image' + 'label' as input, the model output a value representing the probability that the input is real.</p>
+<p><strong>Q2:</strong> About noise and lables.</p>
+<ul>
+<li>noise –&gt; Random vector/seed</li>
+<li>labels –&gt; Class label</li>
+</ul>
+<p>Input 'noise' + 'labels = 5' -&gt; image resembling a &quot;5&quot;.</p>
+<p><strong>Q3:</strong> What steps are needed to deploy a model into production?</p>
+<ul>
+<li>Train &amp; save the model</li>
+<li>Wrap the API</li>
+<li>Package with Docker</li>
+<li>Deploy to a cloud server</li>
+</ul>
+<p><strong>Q4:</strong> Train with multiple GPUs.</p>
+<p>Add it to trainer/default.yaml:</p>
+<pre><code class="language-yaml"><span class="hljs-attr">gpus:</span> <span class="hljs-number">2</span>
+<span class="hljs-attr">strategy:</span> <span class="hljs-string">ddp</span>
+</code></pre>
+<h2 id="training-results">Training Results</h2>
+<p>🚀 View run northern-donkey-30 at: <a href="https://wandb.ai/lokyin-hong-kong-baptist-university/Tests/runs/46lg7xwv">https://wandb.ai/lokyin-hong-kong-baptist-university/Tests/runs/46lg7xwv</a></p>
+<p>⭐️ View project at: <a href="https://wandb.ai/lokyin-hong-kong-baptist-university/Tests">https://wandb.ai/lokyin-hong-kong-baptist-university/Tests</a></p>
+<h2 id="challenges--solutions">Challenges &amp; Solutions</h2>
+<ul>
+<li>
+<p>New to Hydra, but basic YAML setup was easy. Need more time for advanced features.</p>
+</li>
+<li>
+<p>Debugging test_after_training took a long time, solved by adjusting checkpoint settings. Other parts worked fine.</p>
+</li>
+<li>
+<p>No time for open-ended task (no GPU + busy with coursework).
+But I think open-ended experiments may yield interesting findings.</p>
+</li>
+<li>
+<p>Got confused by some auto-generated names like &quot;fancy-feather-28&quot; and &quot;wobbly-vortex-27&quot; - not sure what they represent.</p>
+</li>
+</ul>
+<h2 id="chatbot-assignment">Chatbot Assignment</h2>
+<p><strong>Q1:</strong> Compare models</p>
+<p>HuggingChat is CLOSED. I’d like to share some of my findings here, although I didn’t use HuggingChat.</p>
+<p>Since most models are powerful nowadays, I don’t think there is any gap between their ability. Instead, depending on whether you subscribe, it would be smarter.</p>
+<p>Take Deepseek, ChatGPT and Claude as example.
+Deepseek pretends to be verbose for me, ChatGPT is general and balanced, and Claude is really good at Coding.</p>
+<p><strong>Q2:</strong> Parameters to control response</p>
+<ul>
+<li>
+<p>Temperature: Controls randomness (0 = deterministic, 1 = creative).</p>
+</li>
+<li>
+<p>Top-p: Limits choices to probable words (e.g., top 90% likely options).</p>
+</li>
+<li>
+<p>Max Length: Sets maximum response length (in tokens).</p>
+</li>
+</ul>
+<p><strong>Q3:</strong> Examples in prompt engineering</p>
+<p>Ambiguity &amp; Clarity</p>
+<ul>
+<li>Bad: &quot;Tell me about Apple.&quot; (Fruit? Company?)</li>
+<li>Good: &quot;Explain Apple Inc.'s business model in 2 sentences.&quot;</li>
+</ul>
+<p>Context Window Limits</p>
+<ul>
+<li>Bad: A 500-word essay + &quot;Summarize this.&quot; (Information loss)</li>
+<li>Good: &quot;Summarize the main argument in 3 bullet points.&quot;</li>
+</ul>
+<p><strong>Q4:</strong> RAG</p>
+<p>RAG combines retrieved documents with a language model to generate more accurate and informed responses in natural language tasks.</p>
+<p>---END---</p>
+<h2 id="what-is-all-this">What is all this?</h2>
+<p>This &quot;programming assignment&quot; is really just a way to get you used to
+some of the tools we use every day at Pantheon to help with our research.</p>
+<p>There are 4 fundamental areas that this small task will have you cover:</p>
+<ol>
+<li>
+<p>Getting familiar with training models using <a href="https://pytorch-lightning.readthedocs.io/en/latest/starter/new-project.html">pytorch-lightning</a></p>
+</li>
+<li>
+<p>Using the <a href="https://hydra.cc/">Hydra</a> framework</p>
+</li>
+<li>
+<p>Logging and reporting your experiments on <a href="https://wandb.ai/site">weights and biases</a></p>
+</li>
+<li>
+<p>Showing some basic machine learning knowledge</p>
+</li>
+</ol>
+<h2 id="whats-the-task">What's the task?</h2>
+<p>The actual machine learning task you'll be doing is fairly simple!
+You will be using a very simple GAN to generate fake
+<a href="https://pytorch.org/vision/stable/datasets.html#mnist">MNIST</a> images.</p>
+<p>We don't excpect you to have access to any GPU's. As mentioned earlier this is just a task
+to get you familiar with the tools listed above, but don't hesitate to improve the model
+as much as you can!</p>
+<h2 id="what-you-need-to-do">What you need to do</h2>
+<p>To understand how this framework works have a look at <code>src/train.py</code>.
+Hydra first tries to initialise various pytorch lightning components:
+the trainer, model, datamodule, callbacks and the logger.</p>
+<p>To make the model train you will need to do a few things:</p>
+<ul class="contains-task-list">
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> Complete the model yaml config (<code>model/mnist_gan_model.yaml</code>)</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> Complete the implementation of the model's <code>step</code> method</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> Implement logging functionality to view loss curves
+and predicted samples during training, using the pytorch lightning
+callback method <code>on_epoch_end</code> (use <a href="https://wandb.ai/site">wandb</a>!)</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> Answer some questions about the code (see the bottom of this README)</li>
+</ul>
+<p><strong>All implementation tasks in the code are marked with</strong> <code>TODO</code></p>
+<p>Don't feel limited to these tasks above! Feel free to improve on various parts of the model</p>
+<p>For example, training the model for around 20 epochs will give you results like this:</p>
+<p><img src="file:////Users/zheqiqiantan/Desktop/ai-take-home-test/images/example_train.png" alt="example_train"></p>
+<h2 id="getting-started">Getting started</h2>
+<p>After cloning this repo, install dependencies</p>
+<pre><code class="language-yaml"><span class="hljs-comment"># [OPTIONAL] create conda environment</span>
+<span class="hljs-string">conda</span> <span class="hljs-string">create</span> <span class="hljs-string">--name</span> <span class="hljs-string">pantheon-py38</span> <span class="hljs-string">python=3.8</span>
+<span class="hljs-string">conda</span> <span class="hljs-string">activate</span> <span class="hljs-string">pantheon-py38</span>
+
+<span class="hljs-comment"># install requirements</span>
+<span class="hljs-string">pip</span> <span class="hljs-string">install</span> <span class="hljs-string">-r</span> <span class="hljs-string">requirements.txt</span>
+</code></pre>
+<p>Train model with experiment configuration</p>
+<pre><code class="language-yaml"><span class="hljs-comment"># default</span>
+<span class="hljs-string">python</span> <span class="hljs-string">run.py</span> <span class="hljs-string">experiment=train_mnist_gan.yaml</span>
+
+<span class="hljs-comment"># train on CPU</span>
+<span class="hljs-string">python</span> <span class="hljs-string">run.py</span> <span class="hljs-string">experiment=train_mnist_gan.yaml</span> <span class="hljs-string">trainer.gpus=0</span>
+
+<span class="hljs-comment"># train on GPU</span>
+<span class="hljs-string">python</span> <span class="hljs-string">run.py</span> <span class="hljs-string">experiment=train_mnist_gan.yaml</span> <span class="hljs-string">trainer.gpus=1</span>
+</code></pre>
+<p>You can override any parameter from command line like this</p>
+<pre><code class="language-yaml"><span class="hljs-string">python</span> <span class="hljs-string">run.py</span> <span class="hljs-string">experiment=train_mnist_gan.yaml</span> <span class="hljs-string">trainer.max_epochs=20</span> <span class="hljs-string">datamodule.batch_size=32</span>
+</code></pre>
+<p>The current state of the code will fail at
+<code>src/models/mnist_gan_model.py, line 29, in configure_optimizers</code>
+This is because the generator and discriminator are currently assigned <code>null</code>
+in <code>model/mnist_gan_model.yaml</code>. This is your first task in the &quot;What you need to do&quot;
+section.</p>
+<h2 id="open-ended-tasks-bonus-for-junior-candidates-expected-for-senior-candidates">Open-Ended tasks (Bonus for junior candidates, expected for senior candidates)</h2>
+<p>Staying within the given Hydra - Pytorch-lightning - Wandb framework, show off your skills and creativity by extending the existing model, or even setting up a new one with completely different training goals/strategy. Here are a few potential ideas:</p>
+<ul>
+<li><strong>Implement your own networks</strong>: you are free to choose what you deem most appropriate, but we recommend using CNN and their variants if you are keeping the image-based GANs as the model to train</li>
+<li><strong>Use a more complex dataset</strong>: ideally introducing color, and higher resolution</li>
+<li><strong>Introduce new losses, or different training regimens</strong></li>
+<li><strong>Add more plugins/dependecy</strong>: on top of the provided framework</li>
+<li><strong>Train a completely different model</strong>: this may be especially relevant to you if your existing expertise is not centered in image-based GANs. You may want to re-create a toy sample related to your past research. Do remember to still use the provided framework.</li>
+</ul>
+<h2 id="questions">Questions</h2>
+<p>Try to prepare some short answers to the following questions below for discussion in the interview.</p>
+<ul>
+<li>
+<p>What is the role of the discriminator in a GAN model? Use this project's discriminator as an example.</p>
+</li>
+<li>
+<p>The generator network in this code base takes two arguments: <code>noise</code> and <code>labels</code>.
+What are these inputs and how could they be used at inference time to generate an image of the number 5?</p>
+</li>
+<li>
+<p>What steps are needed to deploy a model into production?</p>
+</li>
+<li>
+<p>If you wanted to train with multiple GPUs,
+what can you do in pytorch lightning to make sure data is allocated to the correct GPU?</p>
+</li>
+</ul>
+<h2 id="submission-1">Submission</h2>
+<ul>
+<li>Using git, keep the existing git history and add your code contribution on top of it. Follow git best practices as you see fit. We appreciate readability in the commits</li>
+<li>Add a section at the top of this README, containing your answers to the questions, as well as the output <code>wandb</code> graphs and images resulting from your training run. You are also invited to talk about difficulties you encountered and how you overcame them</li>
+<li>Link to your git repository in your email reply and share it with us/make it public</li>
+</ul>
+<h1 id="chatbot-assignment-1">Chatbot Assignment:</h1>
+<p>To complete this assignment, you are required to create assistants in <a href="https://huggingface.co/chat/settings/assistants/new">HuggingChat</a> and address the following questions:</p>
+<ul>
+<li>
+<p>Compare atleast 3 different models and provide insights on Content Quality, Contextual Understanding, Language Fluency and Ethical Considerations with examples.</p>
+</li>
+<li>
+<p>What are the parameters that can be used to control response. Explain in detail.</p>
+</li>
+<li>
+<p>Explore various techniques used in prompt engineering, such as template-based prompts, rule-based prompts, and machine learning-based prompts and provide what are the challenges and considerations in designing effective prompts with examples.</p>
+</li>
+<li>
+<p>What is retrieval-augmented generation(RAG) and how is it applied in natural language generation tasks?</p>
+</li>
+</ul>
+<br>
+
+            
+            
+        </body>
+        </html>

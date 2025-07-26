@@ -1,0 +1,228 @@
+wandb_version: 1
+
+_wandb:
+  desc: null
+  value:
+    python_version: 3.8.20
+    cli_version: 0.17.9
+    framework: lightning
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    start_time: 1753546376
+    t:
+      1:
+      - 1
+      - 9
+      - 41
+      - 50
+      - 55
+      2:
+      - 1
+      - 9
+      - 41
+      - 50
+      - 55
+      3:
+      - 7
+      - 23
+      - 66
+      4: 3.8.20
+      5: 0.17.9
+      8:
+      - 5
+      13: darwin-x86_64
+    m:
+    - 1: trainer/global_step
+      6:
+      - 3
+    - 1: gen_imgs._type
+      5: 1
+      6:
+      - 1
+    - 1: gen_imgs.sha256
+      5: 1
+      6:
+      - 1
+    - 1: gen_imgs.size
+      5: 1
+      6:
+      - 1
+    - 1: gen_imgs.path
+      5: 1
+      6:
+      - 1
+    - 1: gen_imgs.format
+      5: 1
+      6:
+      - 1
+    - 1: gen_imgs.width
+      5: 1
+      6:
+      - 1
+    - 1: gen_imgs.height
+      5: 1
+      6:
+      - 1
+    - 1: gen_imgs.caption
+      5: 1
+      6:
+      - 1
+    - 1: train/g_loss
+      5: 1
+      6:
+      - 1
+    - 1: train/d_loss
+      5: 1
+      6:
+      - 1
+    - 1: train/real_loss
+      5: 1
+      6:
+      - 1
+    - 1: train/fake_loss
+      5: 1
+      6:
+      - 1
+    - 1: epoch
+      5: 1
+      6:
+      - 1
+    - 1: val/g_loss
+      5: 1
+      6:
+      - 1
+    - 1: val/d_loss
+      5: 1
+      6:
+      - 1
+    - 1: val/real_loss
+      5: 1
+      6:
+      - 1
+    - 1: val/fake_loss
+      5: 1
+      6:
+      - 1
+trainer/_target_:
+  desc: null
+  value: pytorch_lightning.Trainer
+trainer/gpus:
+  desc: null
+  value: 0
+trainer/weights_summary:
+  desc: null
+  value: None
+trainer/progress_bar_refresh_rate:
+  desc: null
+  value: 5
+trainer/resume_from_checkpoint:
+  desc: null
+  value: None
+trainer/max_epochs:
+  desc: null
+  value: 20
+model/_target_:
+  desc: null
+  value: src.models.mnist_gan_model.MNISTGANModel
+model/lr:
+  desc: null
+  value: 0.0002
+model/b1:
+  desc: null
+  value: 0.5
+model/b2:
+  desc: null
+  value: 0.999
+model/n_classes:
+  desc: null
+  value: 10
+model/latent_dim:
+  desc: null
+  value: 100
+model/channels:
+  desc: null
+  value: 1
+model/img_size:
+  desc: null
+  value: 32
+model/generator/_target_:
+  desc: null
+  value: src.models.modules.generators.Generator
+model/generator/n_classes:
+  desc: null
+  value: 10
+model/generator/latent_dim:
+  desc: null
+  value: 100
+model/generator/channels:
+  desc: null
+  value: 1
+model/generator/img_size:
+  desc: null
+  value: 32
+model/discriminator/_target_:
+  desc: null
+  value: src.models.modules.discriminators.Discriminator
+model/discriminator/n_classes:
+  desc: null
+  value: 10
+model/discriminator/channels:
+  desc: null
+  value: 1
+model/discriminator/img_size:
+  desc: null
+  value: 32
+datamodule/_target_:
+  desc: null
+  value: src.datamodules.mnist_datamodule.MNISTDataModule
+datamodule/data_dir:
+  desc: null
+  value: /Users/zheqiqiantan/Desktop/ai-take-home-test/data/
+datamodule/batch_size:
+  desc: null
+  value: 64
+datamodule/train_val_test_split:
+  desc: null
+  value:
+  - 55000
+  - 5000
+  - 10000
+datamodule/num_workers:
+  desc: null
+  value: 0
+datamodule/pin_memory:
+  desc: null
+  value: false
+seed:
+  desc: null
+  value: 12345
+callbacks/model_checkpoint/_target_:
+  desc: null
+  value: pytorch_lightning.callbacks.ModelCheckpoint
+callbacks/model_checkpoint/monitor:
+  desc: null
+  value: val/d_loss
+callbacks/model_checkpoint/dirpath:
+  desc: null
+  value: ckpts
+callbacks/model_checkpoint/filename:
+  desc: null
+  value: '{step:09d}'
+callbacks/model_checkpoint/save_top_k:
+  desc: null
+  value: -1
+callbacks/model_checkpoint/save_last:
+  desc: null
+  value: true
+callbacks/model_checkpoint/mode:
+  desc: null
+  value: min
+model/params_total:
+  desc: null
+  value: 2813257
+model/params_trainable:
+  desc: null
+  value: 2813257
+model/params_not_trainable:
+  desc: null
+  value: 0
